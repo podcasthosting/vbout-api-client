@@ -1,0 +1,48 @@
+{
+  "name": "podcasthosting/vbout-api-client",
+  "description": "A package to access the VBOUT API.",
+  "keywords": ["vbout", "marketing", "api"],
+  "license": "MIT",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Fabio Bacigalupo",
+      "email": "f.bacigalupo@open-haus.de"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.0",
+    "pestphp/pest-plugin-laravel": "^2.0",
+    "orchestra/testbench": "^7.0|^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "podcasthosting\\VboutApiClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "podcasthosting\\VboutApiClient\\Tests\\": "tests/"
+    }
+  },
+  "files": [
+    "src/helpers.php"
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "podcasthosting\\VboutApiClient\\Providers\\VboutServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
