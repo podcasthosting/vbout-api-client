@@ -1,9 +1,11 @@
 <?php
 namespace podcasthosting\VboutApiClient;
 
-enum CampaignType: string
+enum WebhookType: string
 {
-    case STANDARD = 'standard';
+    case EXIT = 'page_exit';
 
-    case AUTOMATED = 'automated';
+    case ENTRY = 'page_entry';
+
+    case TRIGGER = 'goal_trigger';
 }

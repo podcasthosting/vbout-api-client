@@ -4,7 +4,7 @@ namespace podcasthosting\VboutApiClient\Resources;
 
 use podcasthosting\VboutApiClient\VboutClient;
 
-class Social
+class Socialmedia
 {
     /**
      * @var VboutClient
