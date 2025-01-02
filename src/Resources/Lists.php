@@ -41,9 +41,23 @@ class Lists
         ]);
     }
 
+
     /**
+     *
+     *
      * @param string $name
      * @param array $data
+     *
+        email_subject=Hello World
+        reply_to=no-reply@example.com
+        fromemail=info@example.com
+        from_name= Name
+        notify=Notify me of new subscribers.
+        notify_email=info@example.com
+        success_email=info@example.com
+        success_message=Subscription Success Message
+        error_message=Subscription Error Message
+     *
      * @return array
      * @throws \podcasthosting\VboutApiClient\Exceptions\VboutRequestException
      */
