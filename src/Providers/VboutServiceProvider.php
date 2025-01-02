@@ -20,7 +20,7 @@ class VboutServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        // Erlauben, dass User die config publisht: php artisan vendor:publish --tag=vbout-config
+        // Allow an user to publish the config: php artisan vendor:publish --tag=vbout-config
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/vbout.php' => config_path('vbout.php'),

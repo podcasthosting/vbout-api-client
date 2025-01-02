@@ -15,9 +15,7 @@
     "guzzlehttp/guzzle": "^7.0"
   },
   "require-dev": {
-    "pestphp/pest": "^2.0",
-    "pestphp/pest-plugin-laravel": "^2.0",
-    "orchestra/testbench": "^7.0|^8.0"
+    "pestphp/pest": "^3.7"
   },
   "autoload": {
     "psr-4": {

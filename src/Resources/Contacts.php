@@ -38,27 +38,49 @@ class Contacts
     }
 
     /**
+     * @param int $listId
+     * @return array
+     * @throws VboutRequestException
+     */
+    public function getContactsByPhone(int $listId): array
+    {
+        $queryParams = [
+            'listid' => $listId,
+        ];
+
+        return $this->client->get('EmailMarketing/GetContactsByPhoneNumber', $queryParams);
+    }
+
+    /**
      * GET /EmailMarketing/GetContact
      *
-     * Ruft einen einzelnen Kontakt ab, entweder durch ID oder E-Mail.
-     * Laut Doku kann man 'ContactID' oder 'Email' als Parameter übergeben.
-     *
-     * @param  string|int  $contactIdOrEmail
-     * @param  array       $queryParams  Zusätzliche Filter (optional)
+     * @param int $id
      * @return array
+     * @throws VboutRequestException
      */
-    public function get($contactIdOrEmail, array $queryParams = []): array
+    public function get(int $id): array
     {
-        // Je nachdem, ob es eine Zahl oder eine Email ist, setzen wir die passende Query:
-        // (Manche VBOUT-Versionen unterstützen 'Email', andere 'ContactID', ggf. auch beides.)
-        if (is_numeric($contactIdOrEmail)) {
-            $queryParams['ContactID'] = $contactIdOrEmail;
-        } else {
-            $queryParams['Email'] = $contactIdOrEmail;
-        }
-
-        // https://developers.vbout.com/docs#tag/Contact/operation/get-EmailMarketing-GetContact
+        $queryParams = [
+            'id' => $id,
+        ];
         return $this->client->get('EmailMarketing/GetContact', $queryParams);
+    }
+
+    /**
+     * GET /EmailMarketing/GetContactByEmail
+     *
+     * @param string $email
+     * @param int|null $listId
+     * @return array
+     * @throws VboutRequestException
+     */
+    public function getContactByEmail(string $email, int $listId = null): array
+    {
+        $queryParams = [
+            'email' => $email,
+            'listid' => $listId,
+        ];
+        return $this->client->get('EmailMarketing/GetContactByEmail', $queryParams);
     }
 
     /**
@@ -103,8 +125,9 @@ class Contacts
      * @param  array  $data
      * @return array
      */
-    public function update(array $data): array
+    public function update(int $id, array $data): array
     {
+        $data['id'] = $id;
         // https://developers.vbout.com/docs#tag/Contact/operation/post-EmailMarketing-UpdateContact
         return $this->client->post('EmailMarketing/EditContact', $data);
     }
